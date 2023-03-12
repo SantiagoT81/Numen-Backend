@@ -3,7 +3,11 @@ const Empleado = require('../models/Empleado')
 
 const getEmpleados = async (req, res) => {
     const empleados = await Empleado.find()
-    res.status(200).json(empleados)
+    if(empleados){
+        res.status(200).json(empleados)
+    }else{
+        res.status(404).send('Documento sin registros')
+    }
 };
 
 const getEmpleadoByID = async(req, res) => {

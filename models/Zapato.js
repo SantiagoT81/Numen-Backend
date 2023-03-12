@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const shoeSchema = new Schema({
+const zapatoSchema = new Schema({
     model: {
         type: String,
         required: true
     },
     size: {
-        type: String,
+        type: Number,
         required: true
     }
 });
 
-const Shoe = mongoose.model("Shoe", shoeSchema);
+const Zapato = mongoose.model("Zapato", zapatoSchema);
 
-module.exports = Shoe;
+module.exports = Zapato;
