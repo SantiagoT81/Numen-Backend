@@ -1,11 +1,10 @@
 const express = require('express')
 const app = express()
-const port = 3000 
+const port = 3030 
 const empleadosRouter = require("./routes/empleados")
 const buzosRouter = require("./routes/buzos")
 const zapatosRouter = require("./routes/zapatos")
-const mediasRouter = require("./routes/medias")
-
+const localesRouter = require("./routes/locales")
 
 const dbConnect = require('./database/dbConnection')
 //Tuve que descargar un parser porque no me dejaba realizar posts
@@ -18,6 +17,7 @@ app.use(bp.urlencoded({extended: true}))
 app.use("/empleados",empleadosRouter)
 app.use("/buzos",buzosRouter)
 app.use("/zapatos", zapatosRouter)
+app.use("/locales", localesRouter )
 
 //Cuando recibe una GET REQUEST devuelve una RESPONSE
 app.get('/', (req,res) => {
